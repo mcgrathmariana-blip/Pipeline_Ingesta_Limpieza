@@ -8,9 +8,9 @@ El objetivo es automatizar la lectura, limpieza y almacenamiento de datos, aplic
 
 ## Tecnologías utilizadas
 
-- Python 3
-- Pandas: lectura y transformación de datos.
-- PyArrow: escritura y lectura de archivos Parquet.
+- **Python 3:** lenguaje de programación.
+- **Pandas:** lectura y transformación de datos.
+- **PyArrow:** escritura y lectura de archivos Parquet.
 
 ## Estructura del proyecto
 
@@ -34,7 +34,7 @@ Pipeline_Ingesta_Limpieza/
     └── customer_shopping_clean.parquet
 ```
 
-Nota: los archivos originales y procesados se almacenan localmente y no se incluyen en el repositorio.
+**Nota:** Los archivos originales y procesados se almacenan localmente y no se incluyen en el repositorio. Esto evita subir archivos de datos que pueden generarse nuevamente al ejecutar el pipeline.
 
 ## Etapas del pipeline
 
@@ -48,7 +48,7 @@ El módulo `transform.py` realiza las siguientes tareas:
 
 - Normalización de nombres de columnas a minúsculas y formato snake_case.
 - Eliminación de registros duplicados.
-- Tratamiento de valores nulos mediante la mediana para variables numéricas y la categoría "Unknown" para variables categóricas.
+- Tratamiento de valores nulos mediante la mediana para variables numéricas y la categoría `Unknown` para variables categóricas.
 
 ### 3. Carga
 
@@ -64,14 +64,16 @@ Tener Python 3 instalado.
 
 ### 1. Clonar el repositorio
 
+Reemplazar `TU_USUARIO` por el nombre de usuario de GitHub:
+
 ```bash
-git clone URL_DEL_REPOSITORIO
+git clone https://github.com/TU_USUARIO/Pipeline_Ingesta_Limpieza.git
 cd Pipeline_Ingesta_Limpieza
 ```
 
 ### 2. Crear un entorno virtual
 
-```bash
+```powershell
 py -m venv venv
 ```
 
@@ -80,4 +82,34 @@ py -m venv venv
 En Windows PowerShell:
 
 ```powershell
-.\venv
+.\venv\Scripts\Activate.ps1
+```
+
+### 4. Instalar las dependencias
+
+```powershell
+python -m pip install -r requirements.txt
+```
+
+### 5. Ejecutar el pipeline
+
+```powershell
+python main.py
+```
+
+El archivo CSV debe estar ubicado en la carpeta `data/`, con el nombre `customer_shopping_data.csv`.
+
+Al ejecutar el programa, se generará automáticamente la carpeta `output/` con el archivo procesado `customer_shopping_clean.parquet`.
+
+## Resultados de la ejecución
+
+Durante las pruebas realizadas se obtuvieron los siguientes resultados:
+
+- Registros procesados: **3.900**
+- Registros duplicados eliminados: **0**
+- Valores nulos restantes: **0**
+- Archivo de salida generado correctamente en formato Parquet.
+
+## Conclusión
+
+El proyecto permite automatizar un proceso de ingesta y limpieza de datos mediante una estructura modular y reutilizable. La separación entre extracción, transformación y carga facilita el mantenimiento y la ampliación del pipeline para futuros procesos de análisis de datos y Machine Learning.
