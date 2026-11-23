@@ -64,8 +64,10 @@ Tener Python 3 instalado.
 
 ### 1. Clonar el repositorio
 
+```bash
 git clone https://github.com/mcgrathmariana-blip/Pipeline_Ingesta_Limpieza.git
 cd Pipeline_Ingesta_Limpieza
+```
 
 ### 2. Crear un entorno virtual
 
@@ -109,6 +111,7 @@ Durante las pruebas realizadas se obtuvieron los siguientes resultados:
 ## Conclusión
 
 El proyecto permite automatizar un proceso de ingesta y limpieza de datos mediante una estructura modular y reutilizable. La separación entre extracción, transformación y carga facilita el mantenimiento y la ampliación del pipeline para futuros procesos de análisis de datos y Machine Learning.
+
 
 
 
